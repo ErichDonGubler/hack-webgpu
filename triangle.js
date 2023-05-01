@@ -1,4 +1,3 @@
-const format = navigator.gpu.getPreferredCanvasFormat();
 const adapter = await navigator.gpu.requestAdapter();
 const device = await adapter.requestDevice();
 device.addEventListener("uncapturederror", (event) => {
@@ -7,6 +6,7 @@ device.addEventListener("uncapturederror", (event) => {
 
 // Create a WebGPU context for the <canvas> element.
 let context = document.getElementById('c').getContext('webgpu');
+let format = navigator.gpu.getPreferredCanvasFormat();
 context.configure({ // GPUCanvasConfiguration
     device,
     format,
